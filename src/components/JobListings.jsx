@@ -32,7 +32,7 @@ const JobListings = ({ isHome = false }) => {
           ) : (
             <>
               {jobs[0] === undefined ? (
-                <h2>No Jobs Found</h2>
+                <h2>Jobs Loading</h2>
               ) : (
                 jobs.map((job) => <JobListing job={job} key={job._id} />)
               )}
