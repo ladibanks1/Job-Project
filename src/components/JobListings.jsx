@@ -9,7 +9,11 @@ const JobListings = ({ isHome = false }) => {
         ? "https://react-project-api.onrender.com/job?limit=3"
         : "https://react-project-api.onrender.com/job";
       try {
-        const res = await fetch(apiUrl);
+        const res = await fetch(apiUrl , {
+          headers : {
+            "x-api-key" : import.meta.env.VITE_API_KEY
+          }
+        });
         const data = await res.json();
         setJobs(data);
       } catch (err) {
