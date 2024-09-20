@@ -96,7 +96,11 @@ const JobPage = ({deleteJob}) => {
   );
 };
 const jobLoader = async ({ params }) => {
-  const res = await fetch(`https://react-project-api.onrender.com/job/${params.id}`);
+  const res = await fetch(`https://react-project-api.onrender.com/job/${params.id}` , {
+    headers : {
+      "x-api-key" : import.meta.env.VITE_API_KEY
+    }
+  });
   const data = await res.json();
   return data;
 };

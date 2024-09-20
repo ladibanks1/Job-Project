@@ -19,6 +19,7 @@ function App() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "x-api-key" : import.meta.env.VITE_API_KEY
         
       },
       body: JSON.stringify(add),
@@ -27,6 +28,9 @@ function App() {
   };
   const deleteJob = async (id) => {
     const res = await fetch(`https://react-project-api.onrender.com/job/${id}`, {
+      headers : {
+        "x-api-key" : import.meta.env.VITE_API_KEY
+      },
       method: "DELETE",
     });
     return;
@@ -36,6 +40,7 @@ function App() {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        "x-api-key" : import.meta.env.VITE_API_KEY
       },
       body: JSON.stringify(update),
     });
